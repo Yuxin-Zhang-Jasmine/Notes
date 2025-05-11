@@ -2,7 +2,7 @@
 
 # 超声功能成像（fUS）与ULM技术培训会记录
 
-##  [highlight] Backscatter Imaging
+##  highlight Backscatter Imaging
 
 * 可清晰显示更细小的血管结构。
 
@@ -16,7 +16,7 @@
 
   * **5月8日**：
 
-    1. 产品介绍 ([Iconeus](https://iconeus.com/)
+    1. 产品介绍 ([Iconeus](https://iconeus.com/))
     2. 数据采集（使用 IcoScan）及初步处理（IcoStudio）
   * **5月9日**：
 
@@ -46,9 +46,9 @@
 
 * 相较其他模态（光学、PET、fMRI）：见PPT
 
-  * 灵敏度(SNR?）比fMRI（金标准）更高。
+  * 灵敏度（SNR?）比 fMRI（金标准）更高。
 * 可用于清醒或轻度镇静动物，避免麻醉带来的神经反应抑制。
-* **Head-fix** 相较active更稳定，有助于大脑功能区的registration与test。
+* **Head-fix** 相较 active 更稳定，有助于大脑功能区的 registration 与 test。
 * 可与 EEG、光学、电生理等设备高度兼容。
 * 探头种类丰富：
 
@@ -107,7 +107,7 @@
   * **Tomography**：立体图像质量好，各角度分辨率都不错，但需更长扫描时间（线阵需 40 分钟，multi-array 约 10 分钟）。
 * 2D ULM （用 2D 不用 3D， 因为数据量太大）
 
-  * If uses the 4D probe, make sure tuning the probe parameters to let it being stable (让探头别动)
+  * If uses the 4D probe, make sure tuning the probe-position parameters to let it be stable (让探头别动)
   * 微泡注射通常在小鼠**轻度**麻醉后进行。若采集时间长，3分钟补一次注射。
 * 设置好相关参数后，在 Live View 界面下方点击播放按钮开始实时 CBV 成像与数据采集。
 
@@ -129,7 +129,7 @@
   * 设置 spatial(pixel) averaging + Temporal(number of frames) averaging
 * 可看脑区功能连接
 
-  * 在Functional connectivity 选项卡
+  * 在 Functional connectivity 选项卡
   * 一般用低频信号 勾选 low pass filtering 0.1 Hz, 
   * 勾选 Base line Correction
   * 勾选（optional）Remove global Signal （recommanded for awake animals）
@@ -142,7 +142,7 @@
 
   * 血流密度Density图；
   * 血流速度Velocity图；
-  * backscatter 振幅图（适合观测细血管）。
+  * **backscatter 振幅图（适合观测细血管）**。
 * 功能连接矩阵（基于 Pearson 相关，CBV 数据）。
 * 脑区随时间变化图（heatmap: 横轴时间，纵轴脑区名，颜色 PowerDoppler）。
 * Pixel-wise relative CBV 变化动图。
@@ -178,7 +178,3 @@
   * 开颅术辅助；
   * 新生儿脑癫痫 功能连接；
   * 经颅脑血流ULM成像（在近耳区域照射）。
-
----
-
-如需进一步的示意图或操作界面截图，可补充说明，我可协助整理或生成。需要我导出为 `.md` 文件吗？
