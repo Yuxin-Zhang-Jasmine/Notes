@@ -2,7 +2,7 @@
 
 # 超声功能成像（fUS）与ULM技术培训会记录
 
-##  highlight Backscatter Imaging
+## 📍会议基本信息
 
 * 可清晰显示更细小的血管结构。
 
