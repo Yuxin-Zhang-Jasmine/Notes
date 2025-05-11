@@ -46,7 +46,7 @@
 
   * 灵敏度（SNR?）比 fMRI（金标准）更高。
 * 可用于清醒或轻度镇静动物，避免麻醉带来的神经反应抑制。
-* **Head-fix** 相较 active 更稳定，有助于大脑功能区的 registration 与 test。
+* Head-fix 较 active 更稳定，有助于大脑功能区的 registration 与 test。
 * 可与 EEG、光学、电生理等设备高度兼容。
 * 探头种类丰富：
 
