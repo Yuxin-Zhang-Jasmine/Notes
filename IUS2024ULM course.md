@@ -31,6 +31,9 @@
   ![image](https://github.com/user-attachments/assets/30604765-7f58-4e52-afbe-003f12c3c5e1)
   
 ## Chapter 2: ULM basic concepts
+### Fundamental tradeoff
+*  Low MB density to ensure a good localization precision
+*  High MB count to ensure a good sampling of the image
 ### Experiment advice
 * Choose the **setup** as long as you end up with **visible and numerous** microbubbles that can be **isolated** from each others
 * tail vein injections / Jugular vein catheter (more control; requires surgery) / Intraocular (relatively easy; limited volume)
@@ -77,6 +80,29 @@
     *  remove duplicates
     *  measure velocities and directions
 * An alternative approach: tracking then localization (Leconte et al., 2023.)
+* Motion artifacts and correction methods
+  * ![image](https://github.com/user-attachments/assets/14942959-4ee6-4625-8150-8d4d63a3ce4e)
+  * ![image](https://github.com/user-attachments/assets/caeb2b92-10e5-4c11-a3d2-8230518168b3)
+  * ![image](https://github.com/user-attachments/assets/b3ed57bb-c2fe-4b8c-b5b4-cc0882facb68)
+  * non-rigid registration (in the kidneys: Hingot et al, 2017; Foiret et al, 2017)
+    
+    P.S. [Multimodality non rigid demon algorithm image registration](https://fr.mathworks.com/matlabcentral/fileexchange/21451-multimodality-non-rigid-demon-algorithm-image-registration) (Imregister, imregdemon, imregcorr, elastix, etc)
+* Measures of spatial and temporal resolutions
+  
+## Measures of spatial and temporal resolutions
+
+| Methods                                                                 | citation                               |
+|--------------------------------------------------------------------------|----------------------------------------|
+| The **Fourier Ring Correlation**                                         | Hingot et al, 2021; Heiles et al, 2022 |
+| Using the stability along individual tracks                              | Hingot et al, 2021                     |
+| Using simulations to estimate the localization precision                 | Heiles et al, 2021                     |
+| Saturation curves to estimate temporal resolution                        | Huang et al, 2020                      |
+| Using optical registration for confirmation                              | Huang et al, 2020                      |
+| As the smallest separation between two features                          | Heiles et al, 2019                     |
+| Using statistical separation between neighboring pixels                  | Errico et al, 2015                     |
+| By comparing with the size of the tube                                   | Desailly et al, 2013                   |
+| Using a theoretical estimation                                           | Desailly et al, 2013                   |
+
 
 ### From 2D to 3D (Volumetric ULM)
 * 3D can reduce user-dependency
