@@ -49,21 +49,19 @@
   * Tail vein
   * Jugular vein catheter (more control; requires surgery)
   * Intraocular (easy; limited volume)
-
-* **Bolus injection**
+* Bolus injection
   * ✅ Easier technically (no pumps, more needle placement options, etc.)
   * ❌ Variable MB concentration (can degrade ULM reconstruction)
-* **Constant infusion**
+* Constant infusion
   * ✅ More consistent (benifit reconstruction)
   * ❌ Risk of MBs floating out of suspension
-      
 * General advice 
   * Less time under anesthesia = easier injection
   * Keep animal **warm**!
   * Let tail ‘hang’ for a bit to improve blood pressure
   * Tape everything down. Always.
     
-### Clinical ULM imaging workflow (in Chapter 3)
+### Clinical ULM imaging workflow
  * Limited to **2 bolus injections** of contrast agent
  * Prefer RF data saving over IQ (skip beamforming to get more frames)
  * Select an ROI to increase amount acquired
@@ -77,6 +75,7 @@
 <img src="https://github.com/user-attachments/assets/d88ce52e-be0b-4d6a-b3a9-707c2c5e37d3" alt="image" width="500">
 <img src="https://github.com/user-attachments/assets/e7a589a3-abe2-4a84-b384-63513f873478" alt="image" width="500>
 
+---
 ---
 
 ## ULM Data Processing
@@ -104,13 +103,13 @@
 
 **Motion Artifacts & Correction** methods:
 
-<img src="https://github.com/user-attachments/assets/14942959-4ee6-4625-8150-8d4d63a3ce4e" alt="image" width="330">
-<img src="https://github.com/user-attachments/assets/caeb2b92-10e5-4c11-a3d2-8230518168b3" alt="image" width="330">
-<img src="https://github.com/user-attachments/assets/b3ed57bb-c2fe-4b8c-b5b4-cc0882facb68" alt="image" width="330">
-
   * non-rigid registration (in the kidneys: Hingot et al, 2017; Foiret et al, 2017)
     
     🔗 [Multimodality non rigid demon algorithm image registration](https://fr.mathworks.com/matlabcentral/fileexchange/21451-multimodality-non-rigid-demon-algorithm-image-registration) (Imregister, imregdemon, imregcorr, elastix, etc)
+    
+<img src="https://github.com/user-attachments/assets/14942959-4ee6-4625-8150-8d4d63a3ce4e" alt="image" width="330">
+<img src="https://github.com/user-attachments/assets/caeb2b92-10e5-4c11-a3d2-8230518168b3" alt="image" width="330">
+<img src="https://github.com/user-attachments/assets/b3ed57bb-c2fe-4b8c-b5b4-cc0882facb68" alt="image" width="330">
 
 ---
 
@@ -146,18 +145,26 @@
 
 ---
 
-### Other perspectives
-* Going faster
-  * Higher concentrations (Huang et al., Scientific Reports 2020)
+## Other perspectives
+
+* **Going faster**
+  * Higher MB concentrations (Huang et al., Scientific Reports 2020)
   * Increase SNR 
   * Separate interfering microbubbles
   * Separate tracks
   * Deep learning
-* Solving non-rigid motion
-  * Registration of microbubbles on a common tissue space
-  * Probe motion
-  * Breathing 
-  * Cardiac motion
-* Penetrating the skull easily (Low frequencies, Aberration correction, ..)
-* Leaving vessels (What structure to localize? Vaporizing contrast agents / Nanovesicles / Nanobubbles)
-* New super-resolution techniques rely on red blood cells for subwavelength imaging (Jensen, J.A. TUFFC 2024, You et al., P. Song, TUFFC 2023)
+    
+* **Solving non-rigid motion**
+  * Registrater MBs to a common tissue space
+  * Compensate probe, breathing, and cardiac motion
+
+* **Through the skull**
+  * Use low frequencies + aberration correction
+    
+* **Beyond vessels**
+  * What else structure to localize?
+  * Vaporizing contrast agents / Nanovesicles / Nanobubbles
+    
+* **New super-resolution techniques**
+  * rely on red blood cells for subwavelength imaging
+    (Jensen, J.A. TUFFC 2024, You et al., P. Song, TUFFC 2023)
