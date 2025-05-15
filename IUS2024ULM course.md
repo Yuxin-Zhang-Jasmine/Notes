@@ -1,6 +1,9 @@
 # SC-08 Super-resolution ultrasound imaging
 ### Pengfei Song and Olivier Couture, IEEE IUS 2024, Taipei, Taiwan
-[Video on Bilibili](https://www.bilibili.com/video/BV1L3DjYMEzs/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=e06c10e6def4a4103e4728dc5c00fbbb) | [Slides](https://drive.google.com/file/d/1UKaK1_QazbT3JnrAsbBDLMSsKU4TnZUp/view?usp=sharing)
+📺 [Video on Bilibili](https://www.bilibili.com/video/BV1L3DjYMEzs/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=e06c10e6def4a4103e4728dc5c00fbbb) ｜ 📑 [Slides](https://drive.google.com/file/d/1UKaK1_QazbT3JnrAsbBDLMSsKU4TnZUp/view?usp=sharing)
+
+---
+
 | Chapter                                       | Contents                                                                 |
 |----------------------------------------------|--------------------------------------------------------------------------|
 | Chapter 1: The sources of super-resolution imaging | 1. Imaging biological tissues  <br> 2. Ultrasound in biomedical imaging  <br> 3. Ultrasound contrast agents  <br> 4. Resolution in optics  <br> 5. Historic of super-resolution methods in ultrasound |
@@ -9,87 +12,109 @@
 | Chapter 4: ULM, Advanced considerations | 1. Artificial Intelligence in ULM  <br> **2. Fundamental tradeoff in ULM**  <br> **3. Motion artifacts and correction methods**  <br> **4. Measures of spatial and temporal resolutions**  <br> **5. The PALA framework** |
 | Chapter 5: Hands-on training                  | 1. Using PALA for your own ULM  <br> 2. Dataset and codes provided       |
 
-## Chapter 1: The sources of super-resolution imaging
+---
+
+## The Sources of Super-Resolution Imaging
 ### The landscape of microvascular imaging
 
-![image](https://github.com/user-attachments/assets/315337b3-4ca6-4a5f-9f08-9e5e9350f79a)
+<img src="https://github.com/user-attachments/assets/315337b3-4ca6-4a5f-9f08-9e5e9350f79a" alt="image" width="400">
 
 ### Ultrasound Localization Microscopy (ULM): a Super-Resolution UltraSound (SRUS) technique
   * Microbubbles are nearly fully surrounded by blood cells, flowing in vasculars
-    * Red blood cells - 8 µm, $10^9 ml^{-1}$;
-    * Microbubbles - 3 µm, $10^5 ml^{-1}$ 
+    * Red blood cells - 8 µm, $10^9 \text{ml}^{-1}$;
+    * Microbubbles - 3 µm, $10^5 \text{ml}^{-1}$ 
   * High echogenicity is due to impedance mismatch and **resonance**
   * Performed with **near-resonant excitation** and **low acoustic pressure** to **maximizes oscillation** and  **minimize destruction** of the microbubbles
   * Microbubble oscillation is restricted in capillaries due to the confined space.
-  * The nonlinear behaviour is also amplified due to resonance --> harmonic imaging
+  * Nonlinear behaviour amplified by resonance → harmonic imaging
   
 ### Res/volution in optics --> ULM 
-  * The Nobel Prize in Chemistry 2014, super-resolved fluorescence microscopy, including PALM (PhotoActivated Localization Microscopy)
+  * Nobel Prize in Chemistry 2014: super-resolved fluorescence microscopy, including PALM (PhotoActivated Localization Microscopy)
   * The speaker's prior technique (MUSLI, Couture et al. Patent 2010, IUS 2011 ) was directly inspired by PALM
   * In 2013, 3D approaches were introduced
-  
-  ![image](https://github.com/user-attachments/assets/30604765-7f58-4e52-afbe-003f12c3c5e1)
-  
-## Chapter 2: ULM basic concepts
+
+<img src="https://github.com/user-attachments/assets/30604765-7f58-4e52-afbe-003f12c3c5e1" alt="image" width="1000">
+
+---
+
+## ULM Basic Concepts and Data Acquisition
+
 ### Fundamental tradeoff
-*  Low MB density to ensure a good localization precision
-*  High MB count to ensure a good sampling of the image
+* Low MB density → better localization
+* High MB count → better image sampling
+  
 ### Experiment advice
-* Choose the **setup** as long as you end up with **visible and numerous** microbubbles that can be **isolated** from each others
-* tail vein injections / Jugular vein catheter (more control; requires surgery) / Intraocular (relatively easy; limited volume)
-  1. Bolus injection:
-    * pros: Technically easier (no pumps, more needle placement options, etc.)
-    * cons: Variable MB concentration can degrade ULM reconstruction
-  2. Constant infusion:
-    * pros: More consistent ULM reconstruction
-    * cons: Additional concerns such as MBs floating out of suspension
+* Choose a **setup** that ensures **visible and numerous** microbubbles that can be **isolated**
+* Administration routes:
+  * Tail vein
+  * Jugular vein catheter (more control; requires surgery)
+  * Intraocular (easy; limited volume)
+
+* **Bolus injection**
+  * ✅ Easier technically (no pumps, more needle placement options, etc.)
+  * ❌ Variable MB concentration (can degrade ULM reconstruction)
+* **Constant infusion**
+  * ✅ More consistent (benifit reconstruction)
+  * ❌ Risk of MBs floating out of suspension
+      
 * General advice 
   * Less time under anesthesia = easier injection
-  * Keep the animal **warm**!
-  * Letting the tail ‘hang’ for a bit can improve blood pressure
+  * Keep animal **warm**!
+  * Let tail ‘hang’ for a bit to improve blood pressure
   * Tape everything down. Always.
     
 ### Clinical ULM imaging workflow (in Chapter 3)
- * We were limited to **2 bolus injections** of contrast agent
- * RF data saving is preferred over IQ (skip beamforming to get more frames)
+ * Limited to **2 bolus injections** of contrast agent
+ * Prefer RF data saving over IQ (skip beamforming to get more frames)
  * Select an ROI to increase amount acquired
- * We put together a quick “BubbleCheck” button:
-   * Acquire ~200 frames
-   * Beamform data
-   * SVD filter
-   * Display movie
- * Aberration correction is often necessary (for imaging the brain)
-   
-![image](https://github.com/user-attachments/assets/d88ce52e-be0b-4d6a-b3a9-707c2c5e37d3)
-![image](https://github.com/user-attachments/assets/e7a589a3-abe2-4a84-b384-63513f873478)
+ * A quick “BubbleCheck” button:
+   1. Acquire \~200 frames
+   2. Beamform data
+   3. SVD filter
+   4. Display movie
+ * Aberration correction is often necessary (for brain imaging)
 
+<img src="https://github.com/user-attachments/assets/d88ce52e-be0b-4d6a-b3a9-707c2c5e37d3" alt="image" width="500">
+<img src="https://github.com/user-attachments/assets/e7a589a3-abe2-4a84-b384-63513f873478" alt="image" width="500>
 
+---
 
-### Data processing
-* **Separation** of microbubbles from tissue
-  * Nonlinear imaging (harmonic?)
-  * Motion (High-pass or SVD Filtering)
-* **Localizing** a source (a form of deconvolution)
-  * Interpolation based methods
-  * Gaussian fitting method
-  * Weighted average based methods
-  * **Extension to radial symmetry**
-* **Tracking** MB (an assignment problem) [Simpletracker and particle tracking toolbox](https://github.com/tinevez/simpletracker)
-  * Why tracking for ULM
-    *  filling the gaps
-    *  remove duplicates
-    *  measure velocities and directions
-* An alternative approach: tracking then localization (Leconte et al., 2023.)
-* Motion artifacts and correction methods
-  * ![image](https://github.com/user-attachments/assets/14942959-4ee6-4625-8150-8d4d63a3ce4e)
-  * ![image](https://github.com/user-attachments/assets/caeb2b92-10e5-4c11-a3d2-8230518168b3)
-  * ![image](https://github.com/user-attachments/assets/b3ed57bb-c2fe-4b8c-b5b4-cc0882facb68)
+## ULM Data Processing
+
+**Separation** of microbubbles from tissue
+
+  * Nonlinear imaging (Harmonic?)
+  * Motion filtering (High-pass or SVD)
+  
+**Localizing** sources (Deconvolution-like problem)
+
+  * Interpolation-based
+  * Gaussian fitting
+  * Weighted average
+  * **Radial symmetry extension**
+    
+**Tracking** MBs (an assignment problem) [Simpletracker and particle tracking toolbox](https://github.com/tinevez/simpletracker)
+  
+  * Why tracking :
+    *  Filling gaps
+    *  Remove duplicates
+    *  Measure velocities & directions
+     
+**Alternative**: Track then localize (Leconte et al., 2023.)
+
+**Motion Artifacts & Correction** methods:
+
+<img src="https://github.com/user-attachments/assets/14942959-4ee6-4625-8150-8d4d63a3ce4e" alt="image" width="330">
+<img src="https://github.com/user-attachments/assets/caeb2b92-10e5-4c11-a3d2-8230518168b3" alt="image" width="330">
+<img src="https://github.com/user-attachments/assets/b3ed57bb-c2fe-4b8c-b5b4-cc0882facb68" alt="image" width="330">
+
   * non-rigid registration (in the kidneys: Hingot et al, 2017; Foiret et al, 2017)
     
-    P.S. [Multimodality non rigid demon algorithm image registration](https://fr.mathworks.com/matlabcentral/fileexchange/21451-multimodality-non-rigid-demon-algorithm-image-registration) (Imregister, imregdemon, imregcorr, elastix, etc)
-* Measures of spatial and temporal resolutions
-  
-## Measures of spatial and temporal resolutions
+    🔗 [Multimodality non rigid demon algorithm image registration](https://fr.mathworks.com/matlabcentral/fileexchange/21451-multimodality-non-rigid-demon-algorithm-image-registration) (Imregister, imregdemon, imregcorr, elastix, etc)
+
+---
+
+## Measures of Spatial and Temporal Resolutions
 
 | Methods                                                                 | citation                               |
 |--------------------------------------------------------------------------|----------------------------------------|
@@ -103,19 +128,23 @@
 | By comparing with the size of the tube                                   | Desailly et al, 2013                   |
 | Using a theoretical estimation                                           | Desailly et al, 2013                   |
 
+---
 
-### From 2D to 3D (Volumetric ULM)
-* 3D can reduce user-dependency
-* As in MRI or CT, volULM is mostly isotropic
-* In volULM, quantification (velocity, direction) is accurate
-* In volULM, Pulsatility can be assessed
+## From 2D to 3D (Volumetric ULM)
 
-![image](https://github.com/user-attachments/assets/e4d9edc1-41ae-4047-8490-b76dc6570d54)
+* Reduces user-dependency
+* VolULM is mostly isotropic (like MRI/CT)
+* Accurate quantification (velocity, direction, pulsatility)
 
-* How to obtain optimal volULM:
-  * Correcting for the transducer position is necessary on matrix transducers
-  * Improvements in acquisition (Spherical or/and Cylindrical sequence)
-  * Modifying Beamforming
+<img src="https://github.com/user-attachments/assets/e4d9edc1-41ae-4047-8490-b76dc6570d54" alt="image" width="600">
+
+**Optimizing volULM**
+
+* Correct transducer position (neccessary on matrix transducers)
+* Better acquisition sequences (spherical or/and cylindrical)
+* Beamforming modifications
+
+---
 
 ### Other perspectives
 * Going faster
