@@ -54,7 +54,8 @@ graph TD
    - 波束合成 (Beamforming)
      得到信号维度为 $(x, y, n)$，其中 $n = [1, \dots, N]$ 是 slow-time 维度
 
-     
+---
+
 ### 2. 墙滤波 (Wall Filter)：
    使用高通滤波器去除低频的组织运动干扰（如心跳、呼吸运动），保留真正由血流引起的频率分量。
 
@@ -105,7 +106,7 @@ graph TD
      
      Truncated singular value decomposition - An SVD is carried out after a column arrangement of the slow-time dimension. The signals are filtered by withdrawing the top $\lambda$ singular vectors, i.e. those corresponding to the $\lambda$ greatest singular values.
 
- 
+---
 
 ### 3. **信号能量计算（Power Calculation）**
 将每个像素位置 $(x, y)$ 处的 slow-time 信号组合成一组，称为一个 ensemble, $[s_1, s_2, s_3, ..., s_N]$, 用于计算统计特征（功率、方差等）
@@ -145,4 +146,5 @@ $$
 | 时域法 | **高**  | **优**   | 中  | 临床实时成像   |
 | 频域法 | 中低 | 差   | **高**  | 研究/复杂分析用 |
 
+---
 ---
