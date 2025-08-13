@@ -27,17 +27,17 @@
 * Δf 就是 **每个频率格子的宽度**（单位 Hz）。
 * 算法公式就是：
 
-```
+$$
 \Delta f = \frac{\text{采样率 Fs}}{\text{FFT点数 nfft}}
-```
+$$
 
 **例子：**
 
 * Fs = 25 MHz，nfft = 512
 
-```
+$$
 \Delta f = \frac{25 \times 10^6}{512} \approx 48.828 \ \text{kHz}
-```
+$$
 意思是：FFT 结果中相邻两个频率点之间间隔 48.8 kHz。
 
 
@@ -81,8 +81,9 @@ $$
 
 
 ### 不同窗函数的影响
-<img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/5bd11e5d-3dd0-496c-9a86-d0bc62b3ce2b" />
-<img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/c82fbd93-9e88-4f99-96c3-6e72e1b58cd4" />
+<img width="450" height="220" alt="image" src="https://github.com/user-attachments/assets/5bd11e5d-3dd0-496c-9a86-d0bc62b3ce2b" />
+<img width="450" height="220" alt="image" src="https://github.com/user-attachments/assets/c82fbd93-9e88-4f99-96c3-6e72e1b58cd4" />
+<img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/79f231e1-5e3f-4d41-8407-3a6bdbaeff40" />
 
 #### 频谱泄漏 (Spectral Leakage)
 - **原因**：截断的有限长信号在频域会变成主瓣 + 旁瓣的结构，非整数周期的成分会“泄漏”到其它频率。  
@@ -93,8 +94,7 @@ $$
 - **矩形窗 (boxcar)**：主瓣最窄，旁瓣高（泄漏严重）。
 - **Hann / Hamming**：主瓣略宽，旁瓣显著降低。
 - **Blackman**：旁瓣更低，但主瓣更宽。
-<img width="900" height="400" alt="image" src="https://github.com/user-attachments/assets/79f231e1-5e3f-4d41-8407-3a6bdbaeff40" />
-<img width="672" height="468" alt="image" src="https://github.com/user-attachments/assets/580115f2-6042-4e72-86aa-916bf5e6b447" />
+<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/580115f2-6042-4e72-86aa-916bf5e6b447" />
 
 **平衡点**：选择窗时，要根据应用权衡频率分辨率（主瓣宽度）和泄漏抑制（旁瓣高度）。
 
