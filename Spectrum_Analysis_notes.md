@@ -69,12 +69,12 @@ $$
 归一化因子：
 
 $$
-\text{normFactor} = \sqrt(\sum(\text{win}.^2))
+\text{normFactor} = \sqrt{\sum(\text{win}.^2)}
 $$
 
 - **win**：窗函数向量（如 hann, hamming, boxcar 等）。
 - $\sum(\text{win}.^2)$：窗函数能量（平方和）。
-- $\sqrt(...)$：变回幅度尺度（因为能量是幅度平方）。
+- $\sqrt{(...)}$：变回幅度尺度（因为能量是幅度平方）。
 
 
 ### 不同窗函数的影响
