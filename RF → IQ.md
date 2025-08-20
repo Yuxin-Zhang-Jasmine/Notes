@@ -77,6 +77,21 @@ $$
 
 ---
 
+## 🧾 补充说明：为什么 In-phase 不是同相而是同向？
+
+虽然英文 “in-phase” 字面意思是“同相”，但在 IQ 解调中，它表示的是：
+
+> **信号在参考载波 $\cos(2\pi f_c t)$ 方向上的分量**
+
+这是几何投影意义，而不是“相位相等”的比较。因此：
+
+* ❌ “同相分量” 容易误导
+* ✅ “同向分量” 更符合实际含义和主流教材术语
+
+这一术语源于信号分解为正交分量的思想，参考基底为 $\cos$ 与 $\sin$，如同笛卡尔坐标的 x/y 投影。
+
+---
+
 ## ✅ 方法一：复本振法（直接复乘）
 
 直接将 RF 信号乘以复指数：
@@ -115,7 +130,7 @@ Q(t) = s_\text{RF}(t) \cdot (-\sin(2\pi f_c t))
 \end{cases}
 $$
 
-**同相分量（I）：**
+**同向分量（In phase）：**
 
 $$
 \begin{aligned}
@@ -136,7 +151,7 @@ $$
 I(t) = \frac{a(t)}{2} \left[ \cos(\phi(t)) + \cos(4\pi f_c t + \phi(t)) \right]
 $$
 
-**正交分量（Q）：**
+**正交分量（Quadrature）：**
 
 $$
 \begin{aligned}
@@ -176,27 +191,11 @@ $$
 再乘以 2，就得到目标复包络。
 
 ===
+
 ## 🎯 总结方法流程图
 
-```
-      实数 RF 信号
-            ↓
-   × e^{-j2πf_c t}（复本振）
-            ↓
-     含镜像的复信号
-            ↓
-     LPF（低通滤波）
-            ↓
-     复包络（IQ 信号）
-```
-<img width="976" height="598" alt="屏幕截图 2025-08-20 152511" src="https://github.com/user-attachments/assets/e2f5892a-46a8-4e6e-86b8-312e37914b7d" />
-<img width="1085" height="787" alt="image" src="https://github.com/user-attachments/assets/00c89831-042b-4cb5-9194-c643587742ac" />
-<img width="1131" height="743" alt="image" src="https://github.com/user-attachments/assets/f9b0269c-cb7e-4ca7-818b-4c2114ad57f9" />
+<img width="800" height="598" alt="屏幕截图 2025-08-20 152511" src="https://github.com/user-attachments/assets/e2f5892a-46a8-4e6e-86b8-312e37914b7d" />
+<img width="800" height="787" alt="image" src="https://github.com/user-attachments/assets/00c89831-042b-4cb5-9194-c643587742ac" />
+<img width="800" height="743" alt="image" src="https://github.com/user-attachments/assets/f9b0269c-cb7e-4ca7-818b-4c2114ad57f9" />
 
 
-
-
-
----
-
-这个版本是否满足你的需求？如果你希望我再加一张流程图或者统一格式，随时可以说。
